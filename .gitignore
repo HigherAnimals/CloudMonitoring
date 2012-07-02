@@ -14,3 +14,9 @@ gen/
 
 # local configuration file (sdk path, etc)
 local.properties
+
+# https
+res/raw/auth.bks
+
+# dev -- remove later
+res/values/creds.xml
