@@ -1,7 +1,7 @@
 package com.rackspace.cloudmonitoring;
 
 import android.app.Activity;
-import android.os.AsyncTask;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -14,21 +14,23 @@ public class CloudMonitoringActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        (new AsyncTask<Void, Void, String>() {
+        if (((CloudMonitoringApplication) getApplication()).getSession() == null) {
+            Log.v(TAG, "starting AuthenticatorActivity");
+            startActivity(new Intent(this, AuthenticatorActivity.class));
+        }
 
-            @Override
-            protected String doInBackground(Void... params) {
-                return Authenticator.createSession(
-                        getString(R.string.username),
-                        getString(R.string.password), getApplicationContext())
-                        .getAuthtoken();
-
-            }
-
-            @Override
-            protected void onPostExecute(String result) {
-                Log.v(TAG, result);
-            }
-        }).execute();
+        /*
+         * (new AsyncTask<Void, Void, String>() {
+         * 
+         * @Override protected String doInBackground(Void... params) { return
+         * Authenticator.createSession( getString(R.string.credUsername),
+         * getString(R.string.credPassword),
+         * getApplicationContext()).getAuthtoken();
+         * 
+         * }
+         * 
+         * @Override protected void onPostExecute(String result) { Log.v(TAG,
+         * result); } }).execute();
+         */
     }
 }
