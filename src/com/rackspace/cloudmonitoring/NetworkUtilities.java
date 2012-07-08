@@ -14,10 +14,11 @@ import android.util.Log;
 public class NetworkUtilities {
 
     private static final String TAG = "NetworkUtilities";
-    private static final String AUTH_URI = "https://auth.api.rackspacecloud.com/v2.0/tokens";
+    private static final String AUTH_URI = "https://auth.api.rackspacecloud.com/v2.0/tokens/";
 
     public static String getAuthResponse(String username, String password,
             Context context) {
+        Log.v(TAG, "getAuthResponse");
         HttpPost post = new HttpPost(AUTH_URI);
         AuthHttpClient httpClient = new AuthHttpClient(context);
         post.addHeader("Host", "identity.api.rackspacecloud.com");

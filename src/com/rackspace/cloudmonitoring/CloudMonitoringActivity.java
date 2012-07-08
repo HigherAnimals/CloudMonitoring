@@ -18,9 +18,11 @@ public class CloudMonitoringActivity extends Activity {
 
             @Override
             protected String doInBackground(Void... params) {
-                return NetworkUtilities.getAuthResponse(
-                        getString(R.string.password),
-                        getString(R.string.password), getApplicationContext());
+                return Authenticator.createSession(
+                        getString(R.string.username),
+                        getString(R.string.password), getApplicationContext())
+                        .getAuthtoken();
+
             }
 
             @Override

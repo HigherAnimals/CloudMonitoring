@@ -22,7 +22,7 @@ public class AuthHttpClient extends DefaultHttpClient {
 
     public AuthHttpClient(Context context) {
         this.context = context;
-        Log.v(TAG, "Constructor");
+        Log.v(TAG, "constructor");
     }
 
     @Override
@@ -45,6 +45,7 @@ public class AuthHttpClient extends DefaultHttpClient {
             } finally {
                 in.close();
             }
+            Log.v(TAG, trusted.toString());
             return new SSLSocketFactory(trusted);
         } catch (Exception e) {
             Log.v(TAG, e.toString());
