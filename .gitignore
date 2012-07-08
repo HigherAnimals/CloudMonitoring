@@ -17,6 +17,7 @@ local.properties
 
 # https
 res/raw/auth.bks
+scripts/mycert.pem
 
 # dev -- remove later
 res/values/creds.xml
