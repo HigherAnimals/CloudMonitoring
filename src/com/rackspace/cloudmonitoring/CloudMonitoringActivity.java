@@ -18,19 +18,5 @@ public class CloudMonitoringActivity extends Activity {
             Log.v(TAG, "starting AuthenticatorActivity");
             startActivity(new Intent(this, AuthenticatorActivity.class));
         }
-
-        /*
-         * (new AsyncTask<Void, Void, String>() {
-         * 
-         * @Override protected String doInBackground(Void... params) { return
-         * Authenticator.createSession( getString(R.string.credUsername),
-         * getString(R.string.credPassword),
-         * getApplicationContext()).getAuthtoken();
-         * 
-         * }
-         * 
-         * @Override protected void onPostExecute(String result) { Log.v(TAG,
-         * result); } }).execute();
-         */
     }
 }

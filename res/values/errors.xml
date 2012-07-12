@@ -1,0 +1,5 @@
+
+    <resources>
+        <string name="usernameFieldEmpty">Username is required</string>
+        <string name="passwordFieldEmpty">Password is required</string>
+    </resources>
