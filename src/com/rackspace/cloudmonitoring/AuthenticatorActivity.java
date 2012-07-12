@@ -3,7 +3,6 @@ package com.rackspace.cloudmonitoring;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -43,17 +42,19 @@ public class AuthenticatorActivity extends Activity implements OnClickListener {
         if (err) {
             return;
         }
-        (new AsyncTask<Void, Void, String>() {
+        (new AsyncTask<Void, Void, Session>() {
 
             @Override
-            protected String doInBackground(Void... params) {
+            protected Session doInBackground(Void... params) {
                 return Authenticator.createSession(username, password,
-                        getApplicationContext()).getAuthtoken();
+                        getApplicationContext());
             }
 
             @Override
-            protected void onPostExecute(String result) {
-                Log.v(TAG, result);
+            protected void onPostExecute(Session session) {
+                ((CloudMonitoringApplication) getApplication())
+                        .setSession(session);
+                AuthenticatorActivity.this.finish();
             }
         }).execute();
     }
