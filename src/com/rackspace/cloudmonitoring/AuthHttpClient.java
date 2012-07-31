@@ -21,6 +21,7 @@ public class AuthHttpClient extends DefaultHttpClient {
     final Context context;
 
     public AuthHttpClient(Context context) {
+        super();
         this.context = context;
         Log.v(TAG, "constructor");
     }
@@ -36,6 +37,7 @@ public class AuthHttpClient extends DefaultHttpClient {
     }
 
     private SSLSocketFactory newSslSocketFactory() {
+        Log.v(TAG, "newSslSocketFactory");
         KeyStore trusted;
         try {
             trusted = KeyStore.getInstance("BKS");
@@ -45,7 +47,7 @@ public class AuthHttpClient extends DefaultHttpClient {
             } finally {
                 in.close();
             }
-            Log.v(TAG, trusted.toString());
+            Log.v(TAG, "creating new SSLSocketFactory");
             return new SSLSocketFactory(trusted);
         } catch (Exception e) {
             Log.v(TAG, e.toString());

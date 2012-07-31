@@ -2,4 +2,8 @@
     <resources>
         <string name="usernameFieldEmpty">Username is required</string>
         <string name="passwordFieldEmpty">Password is required</string>
+        <string name="accountParseError">Could not read account info.</string>
+        <string name="accountLacksMonitoring">Unable to find monitoring service entry for this account.</string>
+        <string name="usernamePasswordBad">Invalid username/password combination; please try again.</string>
+        <string name="errorOccurred">An error occurred; please try again later.</string>
     </resources>
